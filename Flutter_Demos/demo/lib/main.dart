@@ -73,8 +73,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     borderRadius: BorderRadius.circular(4), // Corner roundness
                   ),
                 ),
-                onPressed: () {},
                 child: const Text('Saved'),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('saved successfully 👍👍👍')),
+                  );
+                },
               ),
             ),
           ],
