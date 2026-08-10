@@ -1,3 +1,5 @@
+import 'package:demo/pages/first.dart';
+import 'package:demo/pages/second.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -80,6 +82,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
               ),
+            ),
+
+            /* first method of Navigation */
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const FirstPage()),
+                );
+              },
+              child: const Text("First page"),
+            ),
+            /*second method of navigation */
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                );
+              },
+              child: const Text("Second page"),
             ),
           ],
         ),
