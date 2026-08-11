@@ -11,11 +11,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'First App',
-      home: MyHomePage(),
-
       debugShowCheckedModeBanner: false,
+      /* we need to register the routes here first to  use them in the named navigation */
+      routes: {
+        "/": (context) => MyHomePage(),
+        "/first": (context) => FirstPage(name: "named navigation"),
+        /* the data should go through route */
+        "/second": (context) => SecondPage(),
+      },
     );
   }
 }
@@ -88,7 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
             TextButton(
               onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const FirstPage()),
+                  MaterialPageRoute(
+                    builder: (context) => FirstPage(name: "simple navigation"),
+                  ),
                 );
               },
               child: const Text("First page"),
@@ -99,6 +106,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const SecondPage()),
+                );
+              },
+              child: const Text("Second page"),
+            ),
+
+            /* Named Navigation */
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed("/first");
+              },
+              child: const Text("First page"),
+            ),
+
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  "/second",
+                  arguments: "this data comes from named through routes",
                 );
               },
               child: const Text("Second page"),
