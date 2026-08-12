@@ -1,28 +1,13 @@
 import 'package:flutter/material.dart';
-import 'signup.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(title: 'Twitter Demo', home: const MyHomePage());
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _SignupState extends State<Signup> {
   final GlobalKey<FormState> _signInKey = GlobalKey();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -39,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              "Log in to Twitter",
+              "Sign up to twitter",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             Container(
@@ -113,18 +98,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   }
                 },
                 child: const Text(
-                  'Log in',
+                  'Sign Up',
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(
-                  context,
-                ).push(MaterialPageRoute(builder: (context) => Signup()));
+                Navigator.of(context).pop();
               },
-              child: const Text("Don't have an account? Sign up here"),
+              child: const Text("Already have an account? Log in"),
             ),
           ],
         ),
