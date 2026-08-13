@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -23,6 +24,7 @@ class _SignupState extends State<Signup> {
           /* to center the field in the column we should use */
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            FaIcon(FontAwesomeIcons.twitter, color: Colors.blue, size: 70),
             const Text(
               "Sign up to twitter",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'signup.dart';
 
 void main() {
@@ -38,6 +39,14 @@ class _MyHomePageState extends State<MyHomePage> {
           /* to center the field in the column we should use */
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            /* after we add the font_awesome_flutter to dependenciy we can now do this */
+            FaIcon(FontAwesomeIcons.twitter, color: Colors.blue, size: 70),
+            /* instead of diretly import the image we can do this in other way like the above*/
+            /* const Image(
+              image: AssetImage('assets/twitter_blue.png'),
+              width: 100,
+            ),*/
+            const SizedBox(height: 20),
             const Text(
               "Log in to Twitter",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
